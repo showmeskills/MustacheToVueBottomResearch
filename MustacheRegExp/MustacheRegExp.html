@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+
+    </div>
+    <script type="text/javascript">
+    
+        let templateStr = `I am going to buy a {{thing}}, and I spend {{money}} dollars, and I am so {{mood}}`;
+        let data = {
+            thing:'IPhone 12',
+            money:500,
+            mood:'happy'
+        }
+
+        function render(templateStr,data) {
+            return  templateStr.replace(/\{\{(\w+)\}\}/g,function(firstStr,$1,b,c){
+                return data[$1]
+            })
+        }
+        let result = render(templateStr,data);
+        app.innerHTML = result
+    </script>
+</body>
+</html>
