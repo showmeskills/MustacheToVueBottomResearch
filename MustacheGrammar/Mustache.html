@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+
+    </div>
+    <script src='./mustache.js'></script>
+    <script type="text/template" id='mytemplate'>
+        <h1>
+            {{title}}
+        </h1>
+        <ul>
+            {{#arr}}
+            <li>
+                <div class="hd">{{name}} 's information</div>
+                <div class="db">
+                    <p>Name: {{name}}</p>
+                    <p>Age: {{age}}</p>
+                    <p>Gender: {{gender}}</p>
+                </div>
+            </li>
+            {{/arr}}
+        </ul>
+    </script>
+    <script type="text/javascript">
+        let app = document.getElementById('app');
+        let templateStr = document.getElementById('mytemplate').innerHTML;
+        let data = {
+                title:'Mustache grammar',
+                arr:[     
+                    { "name": 'Terrance', "age": 15, "gender": "Male" },
+                    { "name": 'Erick', "age": 19, "gender": "Male" },
+                    { "name": 'Alison', "age": 25, "gender": "Female" },
+                ]
+        }
+        app.innerHTML = Mustache.render(templateStr,data);
+
+    </script>
+</body>
+</html>
